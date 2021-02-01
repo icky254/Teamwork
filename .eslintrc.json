@@ -18,5 +18,12 @@
         "react"
     ],
     "rules": {
+        "no-console": 0,
+        "comma-dangle": 0,
+        "no-undef": 0,
+        "no-use-before-define": 0,
+        "prefer-destructuring": 0,
+        "camelcase": 0,
+        "no-trailing-spaces": 0
     }
 }

@@ -34,7 +34,9 @@ app.post('/users', async (req, res) => {
 // get all users
 app.get('/users', async (req, res) => {
   try {
-    const allUsers = await pool.query('SELECT * FROM users');
+    const allUsers = await pool.query(
+      'SELECT * FROM users'
+    );
     res.json(allUsers.rows);
   } catch (err) {
     console.error(err.message);
@@ -42,38 +44,44 @@ app.get('/users', async (req, res) => {
 });
 
 // get a single user
+// Corrected
 app.get('/users/:id', async (req, res) => {
+  const { id } = req.params;
   try {
-    const { id } = req.params;
-    const user = await pool.query('SELECT * FROM users where users = $1', [id]);
-
+    const user = await pool.query(
+      'SELECT * FROM users WHERE user_id=$1',
+      [id]
+    );
     res.json(user.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
 });
-
+  
 // update a user
+// Corrected
 app.put('/users/:id', async (req, res) => {
   try {
-    const { id } = req.params;
-    const { full_name } = req.body;
+    const { id } = req.params; // WHERE
+    const { full_name } = req.body; // SET
+
     const updateUser = await pool.query(
       'UPDATE users SET full_name = $1 WHERE user_id = $2',
       [full_name, id]
     );
 
-    res.json('User details updated succcessfully!');
+    res.json('Details updated successfully');
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
   }
 });
 
 // delete a user
-app.delete('users/:id', async (req, res) => {
+// To correct
+app.delete('/users/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query(
+    const deleteUser = await pool.query(
       'DELETE FROM users WHERE user_id = $1', 
       [id]
     );

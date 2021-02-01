@@ -1,0 +1,40 @@
+{
+  "name": "teamwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "create": "node ./services/db createTables",
+    "test": "mocha",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icky254/Teamwork.git"
+  },
+  "author": "Isaack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icky254/Teamwork/issues"
+  },
+  "homepage": "https://github.com/icky254/Teamwork#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "make-runnable": "^1.3.8",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.7"
+  }
+}
