@@ -94,3 +94,5 @@ app.delete('/users/:id', async (req, res) => {
 app.listen(port, () => {
   console.log(`Connected to server on port: ${port}`);
 });
+
+module.exports = app;
