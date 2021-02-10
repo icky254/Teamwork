@@ -24,6 +24,8 @@
         "no-use-before-define": 0,
         "prefer-destructuring": 0,
         "camelcase": 0,
-        "no-trailing-spaces": 0
+        "no-trailing-spaces": 0,
+        "no-unused-vars": 0,
+        ""
     }
 }
