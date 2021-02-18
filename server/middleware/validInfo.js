@@ -1,13 +1,13 @@
 module.exports = (req, res, next) => {
 
-  const { name, nickname, email, password } = req.body;
+  const { first_name, last_name, nickname, age, email, password } = req.body;
 
   const validEmail = (userEmail) => {
     return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userEmail);
   }
 
   if (req.path === '/register') {
-    if (![name, email, password].every(Boolean)) {
+    if (![first_name, last_name, nickname, age, email, password].every(Boolean)) {
       return res.status(401).json('Missing user credentials');
     } else if (!validEmail(email)) {
       return res.status(401).json('Invalid Email');

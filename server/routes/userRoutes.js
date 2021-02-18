@@ -10,14 +10,15 @@ router.get('/', userController.user_index);
 router.post('/users', async (req, res) => {
   try {
     const { 
-      full_name,
+      first_name,
+      last_name,
       nickname, 
       age, 
       email 
     } = req.body;
     const newUser = await pool.query(
       'INSERT INTO users (full_name, nickname, age, email) VALUES ($1, $2, $3, $4)',
-      [full_name, nickname, age, email]
+      [first_name, last_name, nickname, age, email]
     );
     res.json(newUser.rows[0]);
   } catch (err) {
